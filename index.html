@@ -53,14 +53,27 @@
     }
     /* Profile photo */
     .profile-photo {
-      width: 310px;
-      height: 310px;
+      width: 300px;
+      height: 300px;
       object-fit: cover;
-      object-position: 50% 35%; /* center horizontally, shift crop upward */
+      object-position: 50% 35%; /* center + crop upward */
       transform: scale(1.2);   /* zoom in */
       border-radius: 50%;
       border: 6px solid #FFC72C;
       margin-bottom: 1rem;
+    }
+    /* Scroll down arrow */
+    .scroll-down {
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #FFC72C;
+      animation: bounce 1.5s infinite;
+      cursor: pointer;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(6px); }
+      60% { transform: translateY(3px); }
     }
     section {
       max-width: 900px;
@@ -108,10 +121,13 @@
     <h1>Joseph Zou</h1>
     <p>Data Science at Purdue University · Machine Learning · Predictive Modeling</p>
     <a href="JosephZouResume.pdf" class="btn" target="_blank">📄 Download Resume</a>
+    <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">
+      ⬇
+    </div>
   </header>
 
   <!-- About -->
-  <section>
+  <section id="about">
     <h2>About Me</h2>
     <p>
       I am a Data Science student at Purdue University, graduating in Spring 2026 with a strong academic record and a focus on machine learning, predictive modeling, and applied analytics. The Data Science program at Purdue integrates computer science, statistics, and mathematics, providing rigorous training in both theory and practice. My coursework has included machine learning, data visualization, data structures and algorithms, and statistical programming, which have given me the tools to approach complex analytical problems with both creativity and precision.
