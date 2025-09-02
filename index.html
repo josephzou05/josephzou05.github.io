@@ -12,8 +12,9 @@
       color: #111827;
       background: #f9fafb;
     }
+    /* Warriors color theme */
     header {
-      background: #111827;
+      background: #1D428A; /* Warriors blue */
       color: white;
       text-align: center;
       padding: 4rem 1rem;
@@ -26,31 +27,43 @@
       font-size: 1.25rem;
       margin-top: 0.5rem;
     }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #FFC72C; /* Warriors gold */
+      display: inline-block;
+      padding-bottom: 0.25rem;
+    }
+    a {
+      color: #1D428A;
+    }
     .btn {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.75rem 1.5rem;
       border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
+      background: #FFC72C;
+      color: #1D428A;
       font-weight: bold;
+      text-decoration: none;
       transition: background 0.2s;
     }
     .btn:hover {
-      background: #1e40af;
+      background: #e6b800; /* darker gold */
+    }
+    /* Profile photo */
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #FFC72C;
+      margin-bottom: 1rem;
     }
     section {
       max-width: 900px;
       margin: 3rem auto;
       padding: 0 1.5rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #2563eb;
-      display: inline-block;
-      padding-bottom: 0.25rem;
     }
     .grid {
       display: grid;
@@ -89,6 +102,7 @@
 
   <!-- Hero -->
   <header>
+    <img src="websitephoto1.jpeg" alt="Joseph Zou" class="profile-photo">
     <h1>Joseph Zou</h1>
     <p>Data Science at Purdue University · Machine Learning · Predictive Modeling</p>
     <a href="JosephZouResume.pdf" class="btn" target="_blank">📄 Download Resume</a>
