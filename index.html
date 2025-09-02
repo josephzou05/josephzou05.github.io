@@ -33,6 +33,7 @@
       border-bottom: 3px solid #FFC72C; /* Warriors gold */
       display: inline-block;
       padding-bottom: 0.25rem;
+      color: #1D428A;
     }
     a {
       color: #1D428A;
@@ -46,10 +47,11 @@
       color: #1D428A;
       font-weight: bold;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
     .btn:hover {
-      background: #e6b800; /* darker gold */
+      background: #1D428A;
+      color: #FFC72C;
     }
     /* Profile photo */
     .profile-photo {
@@ -57,7 +59,7 @@
       height: 310px;
       object-fit: cover;
       object-position: 50% 35%; /* center + crop upward */
-      transform: scale(1.2);   /* zoom in */
+      transform: scale(1.2);
       border-radius: 50%;
       border: 6px solid #FFC72C;
       margin-bottom: 1rem;
@@ -99,10 +101,11 @@
       padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      transition: transform 0.2s, border 0.2s;
     }
     .card:hover {
       transform: translateY(-4px);
+      border: 2px solid #FFC72C; /* subtle Warriors gold hover */
     }
     .skills span {
       display: inline-block;
@@ -111,6 +114,11 @@
       border-radius: 6px;
       margin: 0.25rem;
       font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .skills span:hover {
+      background: #FFC72C;
+      color: #1D428A;
     }
     footer {
       text-align: center;
@@ -118,6 +126,7 @@
       background: #f3f4f6;
       margin-top: 3rem;
       font-size: 0.9rem;
+      color: #1D428A;
     }
   </style>
 </head>
@@ -130,7 +139,7 @@
     <p>Data Science at Purdue University · Machine Learning · Predictive Modeling</p>
     <a href="JosephZouResume.pdf" class="btn" target="_blank">📄 Download Resume</a>
     <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">
-      ⬇
+      🏀
     </div>
   </header>
 
@@ -248,7 +257,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Joseph Zou · Built with ❤️ on GitHub Pages</p>
+    <p>© 2025 Joseph Zou</p>
   </footer>
 </body>
 </html>
