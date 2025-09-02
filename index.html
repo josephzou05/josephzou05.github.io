@@ -80,14 +80,15 @@
       margin: 3rem auto;
       padding: 0 1.5rem;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Experience grid = stacked rows */
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
       margin-top: 1rem;
     }
-    /* Experience grid = stacked rows */
-    .experience-grid {
+    /* Projects grid = stacked rows */
+    .projects-grid {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -187,7 +188,7 @@
   <!-- Projects -->
   <section>
     <h2>Projects</h2>
-    <div class="grid">
+    <div class="projects-grid">
       <div class="card">
         <h3>Body Dysmorphia and Gym Culture Study</h3>
         <ul>
