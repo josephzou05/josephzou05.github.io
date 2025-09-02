@@ -12,12 +12,14 @@
       color: #111827;
       background: #f9fafb;
     }
-    /* Warriors color theme */
+    /* Warriors color theme with gradient */
     header {
-      background: #1D428A; /* Warriors blue */
+      background: linear-gradient(135deg, #1D428A, #FFC72C);
       color: white;
       text-align: center;
       padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
     }
     header h1 {
       font-size: 3rem;
@@ -139,7 +141,7 @@
     <p>Data Science at Purdue University · Machine Learning · Predictive Modeling</p>
     <a href="JosephZouResume.pdf" class="btn" target="_blank">📄 Download Resume</a>
     <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">
-      🏀
+      ⬇
     </div>
   </header>
 
