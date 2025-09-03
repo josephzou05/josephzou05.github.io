@@ -10,7 +10,8 @@
     h2 { margin-top: 2rem; color: #1D428A; font-size: 1.4rem; border-bottom: 2px solid #FFC72C; padding-bottom: 0.3rem; }
     p { margin: 1rem 0; }
     blockquote { border-left: 4px solid #FFC72C; padding-left: 1rem; font-style: italic; color: #444; margin: 1.5rem 0; }
-    img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
+    .image-row { display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0; }
+    .image-row img { width: 48%; max-height: 400px; object-fit: cover; border-radius: 12px; }
     ul { margin-top: 1rem; }
     a { color: #1D428A; text-decoration: underline; }
   </style>
@@ -20,7 +21,11 @@
   <h1>Building My NBA Prop Predictor</h1>
   <p><em>By Joseph Zou</em></p>
 
-  <img src="prizepicks.jpg" alt="PrizePicks logo">
+  <!-- Side by side images -->
+  <div class="image-row">
+    <img src="prizepicks.jpg" alt="PrizePicks">
+    <img src="curry.jpg" alt="Steph Curry">
+  </div>
 
   <p>
     My introduction to sports betting started with my friend Ryan on the way to our first Warriors game together. 
