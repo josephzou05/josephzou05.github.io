@@ -10,6 +10,7 @@
     h2 { margin-top: 2rem; color: #1D428A; font-size: 1.4rem; border-bottom: 2px solid #FFC72C; padding-bottom: 0.3rem; }
     p { margin: 1rem 0; }
     blockquote { border-left: 4px solid #FFC72C; padding-left: 1rem; font-style: italic; color: #444; margin: 1.5rem 0; }
+    img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
     ul { margin-top: 1rem; }
     a { color: #1D428A; text-decoration: underline; }
   </style>
@@ -19,26 +20,30 @@
   <h1>Building My NBA Prop Predictor</h1>
   <p><em>By Joseph Zou</em></p>
 
+  <img src="prizepicks.jpg" alt="PrizePicks logo">
+
   <p>
     My introduction to sports betting started with my friend Ryan on the way to our first Warriors game together. 
     The tickets cost a hundred dollars each, and during the drive Ryan introduced me to PrizePicks. 
-    That night, I turned a fifty dollar bet into one hundred fifty when Steph Curry came up with a steal in the final minute of the game. 
-    The adrenaline rush of that moment stuck with me — it felt like my knowledge of the Warriors and the NBA had paid off directly.
+    That night, I placed a fifty dollar bet that turned into one hundred fifty when Steph Curry came up with a steal in the final minute of the game. 
+    The Chase Center erupted and it felt like the universe had aligned in that single moment. Watching Steph seal the game while also hitting my bet 
+    was one of the most electrifying sports experiences of my life. I had already been a die-hard Warriors fan who never missed a game, 
+    but that night sparked something new. I began to wonder if my passion and attention to detail could be channeled into something more than just cheering from the stands.
   </p>
 
   <p>
-    But over time, frustration set in. Even after watching every Warriors game and studying box scores, my picks would often miss. 
+    Over time, frustration set in. Even after watching every Warriors game and studying box scores, my picks would often miss. 
     I started to wonder if there was a more systematic, data-driven way to approach player props. 
-    Could machine learning give me an edge where intuition and “gut feel” often failed? 
+    Could machine learning give me an edge where intuition and gut feel often failed? 
     That question became the foundation for my NBA Prop Predictor project.
   </p>
 
   <h2>From Fan to Builder</h2>
   <p>
     I began by collecting player game logs, team stats, and matchup data using the <code>nba_api</code> Python library. 
-    I wanted the predictor to feel like a tool I would have used back when I was betting daily — something that could 
-    synthesize the massive amount of basketball data into clean, actionable insights. 
-    My early models weren’t fancy: I started with weighted averages that adjusted a player’s recent performance by matchup strength 
+    I wanted the predictor to feel like a tool I would have used back when I was betting daily, something that could 
+    synthesize the massive amount of basketball data into clean and actionable insights. 
+    My early models were simple. I started with weighted averages that adjusted a player’s recent performance by matchup strength 
     and team rankings. For example, if Steph Curry had been averaging 28 points over the last five games but was facing 
     a top-ranked defense, the system would adjust expectations downward.
   </p>
@@ -58,7 +63,7 @@
   </p>
   <p>
     I also realized the importance of good evaluation metrics. 
-    It wasn’t enough to say “my model predicted 25 points and the player scored 23.” 
+    It was not enough to say “my model predicted 25 points and the player scored 23.” 
     I needed a framework to evaluate consistency across many games and categories like points, rebounds, and assists. 
     Cross-validation and error measurement became just as important as building the model itself.
   </p>
