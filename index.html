@@ -21,9 +21,15 @@
       position: relative;
       overflow: hidden;
     }
+    /* Gradient text for name */
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #FFC72C, #1D428A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
     }
     header p {
       font-size: 1.25rem;
@@ -49,11 +55,12 @@
       color: #1D428A;
       font-weight: bold;
       text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     }
     .btn:hover {
-      background: #1D428A;
-      color: #FFC72C;
+      background: #FFC72C;
+      color: #1D428A;
+      box-shadow: 0 0 12px rgba(255, 199, 44, 0.8); /* glow */
     }
     /* Profile photo container */
     .photo-container {
@@ -63,6 +70,8 @@
       border: 6px solid #FFC72C;
       overflow: hidden;   /* keeps image inside circle */
       margin: 0 auto 1rem auto;
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
     }
     /* Zoomed profile photo */
     .profile-photo {
@@ -86,10 +95,24 @@
       40% { transform: translateY(6px); }
       60% { transform: translateY(3px); }
     }
+    /* Fade-in animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     section {
       max-width: 900px;
       margin: 3rem auto;
-      padding: 0 1.5rem;
+      padding: 3rem 1.5rem;
+    }
+    /* Alternating section backgrounds */
+    section:nth-of-type(even) {
+      background: #f3f4f6;
+      border-radius: 12px;
     }
     /* Experience grid = stacked rows */
     .experience-grid {
@@ -129,6 +152,11 @@
       background: #FFC72C;
       color: #1D428A;
     }
+    /* Emoji hover bounce */
+    .emoji:hover {
+      display: inline-block;
+      animation: bounce 0.6s;
+    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -147,7 +175,7 @@
       <img src="./websitephoto1.jpg" alt="Joseph Zou" class="profile-photo">
     </div>
     <h1>Joseph Zou</h1>
-    <p>Data Science at Purdue University🚂 · Machine Learning · Predictive Modeling</p>
+    <p><span class="emoji">🚂</span> Data Science at Purdue University · Machine Learning · Predictive Modeling</p>
     <a href="JosephZouResume.pdf" class="btn" target="_blank">📄 Download Resume</a>
     <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">
       ⬇
