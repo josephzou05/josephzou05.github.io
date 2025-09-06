@@ -1,121 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gym Culture & Body Dysmorphia: Results</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joseph Zou</title>
   <style>
-    body { font-family: Georgia, serif; line-height: 1.7; color: #111827; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; background: #f9fafb; }
-    h1 { font-size: 2.4rem; color: #1D428A; text-align: center; }
-    h2 { margin-top: 2rem; color: #1D428A; font-size: 1.4rem; border-bottom: 2px solid #FFC72C; padding-bottom: 0.3rem; }
-    p { margin: 1rem 0; }
-    img { max-width: 100%; border-radius: 8px; margin: 1rem 0; display: block; }
-    .chart { text-align: center; margin: 2rem 0; }
-    .back-link { display: block; margin-top: 3rem; text-align: center; font-weight: bold; color: #1D428A; text-decoration: underline; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: #f9fafb;
+    }
+    /* Warriors color theme with gradient + Golden Gate overlay */
+    header {
+      background: linear-gradient(180deg, rgba(29, 66, 138, 0.9) 0%, rgba(29, 66, 138, 0.9) 93%, rgba(255, 199, 44, 0.9) 100%),
+                  url('golden-gate.jpg') no-repeat center center / cover;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: white;
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #FFC72C; /* Warriors gold */
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      color: #1D428A;
+    }
+    a {
+      color: #1D428A;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: #FFC72C;
+      color: #1D428A;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      background: #FFC72C;
+      color: #1D428A;
+      box-shadow: 0 0 12px rgba(255, 199, 44, 0.8);
+    }
+    /* Profile photo container */
+    .photo-container {
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      border: 6px solid #FFC72C;
+      overflow: hidden;
+      margin: 0 auto 1rem auto;
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
+    }
+    /* Zoomed profile photo */
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 40%;
+      transform: scale(1.3);
+    }
+    /* Scroll down arrow */
+    .scroll-down {
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #FFC72C;
+      animation: bounce 1.5s infinite;
+      cursor: pointer;
+      text-shadow: 0 0 8px rgba(255, 199, 44, 0.7);
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(6px); }
+      60% { transform: translateY(3px); }
+    }
+    /* Fade-in animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 3rem 1.5rem;
+    }
+    section:nth-of-type(even) {
+      background: #f3f4f6;
+      border-radius: 12px;
+    }
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s, border 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border: 2px solid #FFC72C;
+    }
+    .skills span {
+      display: inline-block;
+      background: #e5e7eb;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      margin: 0.25rem;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .skills span:hover {
+      background: #FFC72C;
+      color: #1D428A;
+    }
+    .emoji:hover {
+      display: inline-block;
+      animation: bounce 0.6s;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f3f4f6;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #1D428A;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Gym Culture and Body Dysmorphia: Survey Results</h1>
-  <p><em>By Joseph Zou · September 2025</em></p>
+  <!-- Hero -->
+  <header>
+    <div class="photo-container">
+      <img src="./websitephoto1.jpg" alt="Joseph Zou" class="profile-photo">
+    </div>
+    <h1>Joseph Zou</h1>
+    <p>Data Science at Purdue University <span class="emoji">🚂</span> · Machine Learning · Predictive Modeling</p>
+    <a href="JosephZouResume.pdf" class="btn" target="_blank">📄 Download Resume</a>
+    <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">
+      ⬇
+    </div>
+  </header>
 
-  <p>
-    This page summarizes the results of my survey-based study on gym culture, social media, and body image. 
-    The analysis focused on eight targeted comparisons that capture how social media exposure, physique comparison, 
-    and gym habits connect with body satisfaction and dysmorphic tendencies.
-  </p>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a Data Science student at Purdue University, graduating in Spring 2026 with a strong academic record and a focus on machine learning, predictive modeling, and applied analytics. The Data Science program at Purdue integrates computer science, statistics, and mathematics, providing rigorous training in both theory and practice. My coursework has included machine learning, data visualization, data structures and algorithms, and statistical programming, which have given me the tools to approach complex analytical problems with both creativity and precision.
+    </p>
+    <p>
+      My career goal is to become a data scientist who applies advanced statistical modeling and machine learning techniques to solve meaningful challenges in technology, business, and society. I am especially motivated by opportunities where data-driven insights can directly impact decisions and improve outcomes.
+    </p>
+    <p>
+      Beyond academics, I played competitive water polo, enjoy rock climbing, and train consistently in the gym. I am also passionate about cooking and food, experimenting with high protein meals and meal prep strategies. These interests keep me balanced and fuel my curiosity both inside and outside of data science.
+    </p>
+  </section>
 
-  <!-- Study 1 -->
-  <h2>Study 1: followsInfluencersNum vs needsMoreMuscle</h2>
-  <div class="chart">
-    <img src="study1.png" alt="Influencers vs Needs More Muscle">
-  </div>
-  <p>
-    Respondents who followed more fitness influencers were significantly more likely to report feeling they needed more muscle. 
-    This suggests that influencer-driven content amplifies perceptions of inadequacy and pushes gym-goers toward unrealistic goals.
-  </p>
+  <!-- Experience -->
+  <section>
+    <h2>Experience</h2>
+    <div class="experience-grid">
+      <div class="card">
+        <h3>Data Science Researcher</h3>
+        <p><em>John Deere · Aug 2025 – Present</em></p>
+        <ul>
+          <li>Selected to develop 12-month demand forecasting models using SARIMA, XGBoost, Neural Networks</li>
+          <li>Contributing to probabilistic forecasting with DeepAR and quantile loss to model demand uncertainty</li>
+          <li>Benchmarking advanced ML approaches against statistical methods to improve accuracy and business applicability</li>
+          <li>Will present findings on inventory optimization and supply chain forecasting at the Purdue Data Mine Symposium</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Data Science Intern</h3>
+        <p><em>BASF · Aug 2024 – May 2025</em></p>
+        <ul>
+          <li>Cleaned and merged 500K+ agricultural treatment records into a standardized, analysis-ready dataset</li>
+          <li>Engineered spatiotemporal features to effectively capture geographic and sequential treatment patterns</li>
+          <li>Built and validated logistic regression and gradient boosting models to predict second-treatment likelihood</li>
+          <li>Conducted rigorous cost-benefit simulations to optimize treatment allocation and sequencing strategies</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Machine Learning Research Assistant</h3>
+        <p><em>CourseKata Project · Mar 2024 – Jun 2024</em></p>
+        <ul>
+          <li>Built predictive regression models on 450K student records, identifying key factors influencing academic outcomes</li>
+          <li>Applied correlation analyses and unsupervised clustering to video engagement logs, showing rewatchers were 72% more likely to finish assignments</li>
+          <li>Engineered data pipelines in R (tidyverse) and built ggplot2 visualizations for feature engineering and analysis</li>
+          <li>Delivered insights at ASA DataFest through reproducible workflows, engaging academic and industry audiences</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <!-- Study 2 -->
-  <h2>Study 2: followsInfluencersNum vs comparesPhysiqueNum</h2>
-  <div class="chart">
-    <img src="study2.png" alt="Influencers vs Physique Comparison">
-  </div>
-  <p>
-    Following influencers was strongly linked with comparing one’s own physique to others. 
-    This highlights how curated social media feeds fuel constant comparison cycles.
-  </p>
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>Body Dysmorphia and Gym Culture Study</h3>
+        <ul>
+          <li>Independently designed and deployed a 100+ response survey on gym culture, social media, and body image</li>
+          <li>Built an end-to-end pipeline in Python (Pandas, NumPy) to clean, standardize, and analyze collected data</li>
+          <li>Applied statistical tests to evaluate significance of body dysmorphia indicators across demographics and habits</li>
+          <li>Developed visualizations with Matplotlib and published results on a public website to communicate findings</li>
+          <li>Modeled body satisfaction using regression and classification techniques to identify key predictors among demographics, gym habits, and social media exposure</li>
+        </ul>
+        <p><a href="GymDataResults.html" target="_blank">📊 View results</a></p>
+      </div>
+      <div class="card">
+        <h3>NBA Prop Prediction</h3>
+        <ul>
+          <li>Built a stat projection tool using nba api to analyze player game logs, team matchups, and current trends</li>
+          <li>Engineered a weighted averaging system that adjusts player performance by various factors</li>
+          <li>Integrated team stat rankings and matchup deltas to refine individual projections based on historical performance</li>
+          <li>Currently developing a machine learning model to improve the accuracy of player prop predictions across key stat categories</li>
+        </ul>
+        <p><a href="NBAPropPredictor.html" target="_blank">📄 Read essay</a></p>
+      </div>
+      <div class="card">
+        <h3>Swimlytics</h3>
+        <ul>
+          <li>Investigated trends in youth swimming to explore fairness and performance equity</li>
+          <li>Cleaned and structured raw competition results for EDA and hypothesis testing</li>
+          <li>Ran two-sample t-tests to assess statistical significance of gender performance gaps</li>
+          <li>Built a k-NN model with 93% accuracy to predict swimmer gender using age and race time features</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <!-- Study 3 -->
-  <h2>Study 3: comparesPhysiqueNum vs bodySatisfaction5</h2>
-  <div class="chart">
-    <img src="study3.png" alt="Comparison vs Body Satisfaction">
-  </div>
-  <p>
-    Frequent comparison to others correlated with significantly lower body satisfaction (negative correlation, R ≈ -0.40). 
-    This confirms that comparison undermines self-image and confidence.
-  </p>
+  <!-- Writing -->
+  <section>
+    <h2>Writing</h2>
+    <p>
+      I enjoy writing essays and reflections on the ethical, technical, and cultural dimensions of
+      technology, sports, and fitness. Here are a few pieces of my work:
+    </p>
+    <ul>
+      <li>
+        <a href="TeslaAutopilot.html" target="_blank">📄 Tesla Autopilot and Responsibility in AI</a>  
+        <br><small>An essay analyzing Tesla’s Autopilot and Full Self-Driving systems through the principles of autonomy and harm.</small>
+      </li>
+      <li>
+        <a href="OpenAIPrivacy.html" target="_blank">📄 Data Privacy and OpenAI: Autonomy in the Digital Age</a>  
+        <br><small>A case study on OpenAI’s data scraping practices and their ethical implications for autonomy and fairness.</small>
+      </li>
+      <li>
+        <a href="NBAPropPredictor.html" target="_blank">📄 Building My NBA Prop Predictor</a>  
+        <br><small>A reflection on creating my NBA prop betting predictor and lessons learned from data science modeling.</small>
+      </li>
+      <li>
+        <a href="GymData.html" target="_blank">📄 Tracking Gym Data Like a Data Scientist</a>  
+        <br><small>A personal essay about gym culture, body dysmorphia, and my own struggles with physique and social media.</small>
+      </li>
+    </ul>
+  </section>
 
-  <!-- Study 4 -->
-  <h2>Study 4: comparesPhysiqueNum vs feelsTooSmall</h2>
-  <div class="chart">
-    <img src="study4.png" alt="Comparison vs Feels Too Small">
-  </div>
-  <p>
-    Those who compared their physique more often also reported stronger feelings of being too small. 
-    This reinforces how comparison creates distorted self-perceptions even among individuals with healthy builds.
-  </p>
+  <!-- Coursework -->
+  <section>
+    <h2>Relevant Coursework</h2>
+    <div class="skills">
+      <span>Data Structures & Algorithms</span>
+      <span>Data Mining & Machine Learning</span>
+      <span>Data Visualization</span>
+      <span>Elementary Linear Algebra</span>
+      <span>Discrete Mathematics</span>
+      <span>Python Programming</span>
+      <span>Statistics for Data Science</span>
+      <span>Probability</span>
+      <span>Statistical Programming</span>
+    </div>
+  </section>
 
-  <!-- Study 5 -->
-  <h2>Study 5: comparesPhysiqueNum vs feelsCulturePressure</h2>
-  <div class="chart">
-    <img src="study5.png" alt="Comparison vs Culture Pressure">
-  </div>
-  <p>
-    High levels of physique comparison were associated with increased feelings of cultural pressure to look a certain way. 
-    This demonstrates how social standards of fitness amplify dysmorphic thoughts.
-  </p>
+  <!-- Technical Skills -->
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <span>Python</span><span>R</span><span>SAS</span><span>Java</span><span>C/C++</span><span>SQL</span>
+      <span>Pandas</span><span>NumPy</span><span>scikit-learn</span><span>Matplotlib</span><span>ggplot2</span><span>NLTK</span>
+    </div>
+  </section>
 
-  <!-- Study 6 -->
-  <h2>Study 6: comparesPhysiqueNum vs avoidsPostingDueToPhysique</h2>
-  <div class="chart">
-    <img src="study6.png" alt="Comparison vs Avoids Posting">
-  </div>
-  <p>
-    Respondents who frequently compared their bodies to others were far more likely to avoid posting pictures online 
-    because of dissatisfaction. This shows how body image struggles spill into social media behavior.
-  </p>
+  <!-- Awards -->
+  <section>
+    <h2>Awards</h2>
+    <ul>
+      <li>ASA DataFest: Best Statistical Analysis Award, Purdue University (Spring '24)</li>
+      <li>Dean's List and Semester Honors, Purdue University (Fall '23, Spring '24, Fall '24, Spring '25)</li>
+    </ul>
+  </section>
 
-  <!-- Study 7 -->
-  <h2>Study 7: comparesPhysiqueNum vs mirrorChecksPerDay</h2>
-  <div class="chart">
-    <img src="study7.png" alt="Comparison vs Mirror Checks">
-  </div>
-  <p>
-    More physique comparison was linked to higher mirror-checking frequency. 
-    This obsessive behavior is one of the strongest behavioral signals of body dysmorphia.
-  </p>
+  <!-- Contact -->
+  <section>
+    <h2>Contact</h2>
+    <p>
+      📧 <a href="mailto:josephzou05@gmail.com">josephzou05@gmail.com</a> · 
+      🔗 <a href="https://www.linkedin.com/in/josephzou05" target="_blank">LinkedIn</a> · 
+      💻 <a href="https://github.com/josephzou05" target="_blank">GitHub</a>
+    </p>
+  </section>
 
-  <!-- Study 8 -->
-  <h2>Study 8: bodySatisfaction5 vs avoidsPostingDueToPhysique</h2>
-  <div class="chart">
-    <img src="study8.png" alt="Satisfaction vs Avoid Posting">
-  </div>
-  <p>
-    Lower body satisfaction was directly tied to avoiding posting on social media. 
-    People who scored themselves lower on satisfaction were far more likely to hide online, 
-    further illustrating how internal struggles with self-image shape external expression.
-  </p>
-
-  <h2>Conclusion</h2>
-  <p>
-    Across all eight comparisons, a consistent theme emerged: comparison and social media exposure 
-    are powerful predictors of dissatisfaction and dysmorphic tendencies. While the gym can provide 
-    structure and progress, the surrounding culture—especially online—often reinforces feelings of inadequacy. 
-    The strongest effects appeared in how comparison behaviors translated into dissatisfaction, avoidance, 
-    and compulsive habits like mirror-checking. 
-  </p>
-
-  <a href="GymData.html" class="back-link">⬅ Back to Personal Essay</a>
-
+  <footer>
+    <p>© 2025 Joseph Zou</p>
+  </footer>
 </body>
 </html>
