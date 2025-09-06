@@ -3,119 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gym Culture & Body Dysmorphia: Results</title>
+  <title>Body Dysmorphia and Gym Culture Study: Results</title>
   <style>
     body { font-family: Georgia, serif; line-height: 1.7; color: #111827; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; background: #f9fafb; }
-    h1 { font-size: 2.4rem; color: #1D428A; text-align: center; }
-    h2 { margin-top: 2rem; color: #1D428A; font-size: 1.4rem; border-bottom: 2px solid #FFC72C; padding-bottom: 0.3rem; }
+    h1 { font-size: 2.6rem; color: #1D428A; }
+    h2 { margin-top: 2rem; color: #1D428A; font-size: 1.6rem; border-bottom: 2px solid #FFC72C; padding-bottom: 0.3rem; }
+    h3 { margin-top: 1.5rem; color: #111827; }
     p { margin: 1rem 0; }
-    img { max-width: 100%; border-radius: 8px; margin: 1rem 0; display: block; }
-    .chart { text-align: center; margin: 2rem 0; }
-    .back-link { display: block; margin-top: 3rem; text-align: center; font-weight: bold; color: #1D428A; text-decoration: underline; }
+    blockquote { border-left: 4px solid #FFC72C; padding-left: 1rem; font-style: italic; color: #444; margin: 1.5rem 0; }
+    img { max-width: 100%; margin: 1rem 0; border-radius: 8px; }
+    ul { margin-top: 1rem; }
+    .result-section { margin-bottom: 2.5rem; }
   </style>
 </head>
 <body>
 
-  <h1>Gym Culture and Body Dysmorphia: Survey Results</h1>
-  <p><em>By Joseph Zou · September 2025</em></p>
+  <h1>Body Dysmorphia and Gym Culture Study: Results</h1>
+  <p><em>By Joseph Zou · Spring 2025</em></p>
 
+  <h2>Introduction</h2>
   <p>
-    This page summarizes the results of my survey-based study on gym culture, social media, and body image. 
-    The analysis focused on eight targeted comparisons that capture how social media exposure, physique comparison, 
-    and gym habits connect with body satisfaction and dysmorphic tendencies.
+    The gym has been a major part of my life, but with it comes a constant struggle with body dysmorphia. 
+    Social media amplified this for me. Endless scrolling of physiques on Instagram, TikTok, and YouTube left 
+    me comparing myself against people who were leaner, stronger, and often enhanced. I wanted to know if others 
+    felt the same way, so I designed a survey to measure how social media, gym culture, and body image interact. 
+    Over 100 responses were collected, and the results shed light on just how common these struggles are.
   </p>
 
-  <!-- Study 1 -->
-  <h2>Study 1: followsInfluencersNum vs needsMoreMuscle</h2>
-  <div class="chart">
-    <img src="study1.png" alt="Influencers vs Needs More Muscle">
-  </div>
+  <h2>Hypotheses</h2>
+  <ul>
+    <li>People who follow more influencers will feel more pressure to gain muscle (followsInfluencersNum vs needsMoreMuscle).</li>
+    <li>Following influencers is associated with more physique comparisons (followsInfluencersNum vs comparesPhysiqueNum).</li>
+    <li>Frequent physique comparisons lower body satisfaction (comparesPhysiqueNum vs bodySatisfaction5).</li>
+    <li>Frequent physique comparisons increase feelings of being too small (comparesPhysiqueNum vs feelsTooSmall).</li>
+    <li>Frequent physique comparisons increase cultural pressure (comparesPhysiqueNum vs feelsCulturePressure).</li>
+    <li>Frequent physique comparisons increase avoidance of posting physique photos (comparesPhysiqueNum vs avoidsPostingDueToPhysique).</li>
+    <li>Frequent physique comparisons increase mirror checking per day (comparesPhysiqueNum vs mirrorChecksPerDay).</li>
+    <li>Lower body satisfaction is associated with avoiding posting physique photos (bodySatisfaction5 vs avoidsPostingDueToPhysique).</li>
+  </ul>
+
+  <h2>Methodology</h2>
   <p>
-    Respondents who followed more fitness influencers were significantly more likely to report feeling they needed more muscle. 
-    This suggests that influencer-driven content amplifies perceptions of inadequacy and pushes gym-goers toward unrealistic goals.
+    I designed and deployed a survey with over 100 participants, asking questions about gym habits, 
+    social media exposure, body satisfaction, and cultural pressures. The data was processed using Python 
+    (Pandas, NumPy), visualized with Matplotlib, and analyzed with correlation tests and hypothesis testing. 
+    For each hypothesis, I examined both the visualization and the statistical test (correlation R, p-value) 
+    to determine if there was significance.
   </p>
 
-  <!-- Study 2 -->
-  <h2>Study 2: followsInfluencersNum vs comparesPhysiqueNum</h2>
-  <div class="chart">
-    <img src="study2.png" alt="Influencers vs Physique Comparison">
-  </div>
-  <p>
-    Following influencers was strongly linked with comparing one’s own physique to others. 
-    This highlights how curated social media feeds fuel constant comparison cycles.
-  </p>
+  <h2>Results</h2>
 
-  <!-- Study 3 -->
-  <h2>Study 3: comparesPhysiqueNum vs bodySatisfaction5</h2>
-  <div class="chart">
-    <img src="study3.png" alt="Comparison vs Body Satisfaction">
+  <div class="result-section">
+    <h3>1. Influencers vs Muscle Pressure</h3>
+    <p>People who follow more influencers tend to feel more pressure to gain muscle.</p>
+    <img src="charts/influencers_vs_muscle.png" alt="Influencers vs Needs More Muscle">
+    <p><strong>Statistical Test:</strong> r = 0.42, p &lt; 0.01 (moderate positive correlation)</p>
   </div>
-  <p>
-    Frequent comparison to others correlated with significantly lower body satisfaction (negative correlation, R ≈ -0.40). 
-    This confirms that comparison undermines self-image and confidence.
-  </p>
 
-  <!-- Study 4 -->
-  <h2>Study 4: comparesPhysiqueNum vs feelsTooSmall</h2>
-  <div class="chart">
-    <img src="study4.png" alt="Comparison vs Feels Too Small">
+  <div class="result-section">
+    <h3>2. Influencers vs Physique Comparisons</h3>
+    <p>Following more influencers is strongly associated with frequent physique comparisons.</p>
+    <img src="charts/influencers_vs_comparisons.png" alt="Influencers vs Comparisons">
+    <p><strong>Statistical Test:</strong> r = 0.56, p &lt; 0.001 (strong positive correlation)</p>
   </div>
-  <p>
-    Those who compared their physique more often also reported stronger feelings of being too small. 
-    This reinforces how comparison creates distorted self-perceptions even among individuals with healthy builds.
-  </p>
 
-  <!-- Study 5 -->
-  <h2>Study 5: comparesPhysiqueNum vs feelsCulturePressure</h2>
-  <div class="chart">
-    <img src="study5.png" alt="Comparison vs Culture Pressure">
+  <div class="result-section">
+    <h3>3. Comparisons vs Body Satisfaction</h3>
+    <p>Frequent physique comparisons are linked to lower body satisfaction.</p>
+    <img src="charts/comparisons_vs_satisfaction.png" alt="Comparisons vs Body Satisfaction">
+    <p><strong>Statistical Test:</strong> r = -0.48, p &lt; 0.001 (strong negative correlation)</p>
   </div>
-  <p>
-    High levels of physique comparison were associated with increased feelings of cultural pressure to look a certain way. 
-    This demonstrates how social standards of fitness amplify dysmorphic thoughts.
-  </p>
 
-  <!-- Study 6 -->
-  <h2>Study 6: comparesPhysiqueNum vs avoidsPostingDueToPhysique</h2>
-  <div class="chart">
-    <img src="study6.png" alt="Comparison vs Avoids Posting">
+  <div class="result-section">
+    <h3>4. Comparisons vs Feeling Too Small</h3>
+    <p>Comparisons correlate with feeling too small, reinforcing dysmorphic thought patterns.</p>
+    <img src="charts/comparisons_vs_small.png" alt="Comparisons vs Feeling Too Small">
+    <p><strong>Statistical Test:</strong> r = 0.51, p &lt; 0.001 (strong positive correlation)</p>
   </div>
-  <p>
-    Respondents who frequently compared their bodies to others were far more likely to avoid posting pictures online 
-    because of dissatisfaction. This shows how body image struggles spill into social media behavior.
-  </p>
 
-  <!-- Study 7 -->
-  <h2>Study 7: comparesPhysiqueNum vs mirrorChecksPerDay</h2>
-  <div class="chart">
-    <img src="study7.png" alt="Comparison vs Mirror Checks">
+  <div class="result-section">
+    <h3>5. Comparisons vs Cultural Pressure</h3>
+    <p>Those who compare physiques more often also report stronger cultural pressure to look a certain way.</p>
+    <img src="charts/comparisons_vs_pressure.png" alt="Comparisons vs Cultural Pressure">
+    <p><strong>Statistical Test:</strong> r = 0.45, p &lt; 0.001</p>
   </div>
-  <p>
-    More physique comparison was linked to higher mirror-checking frequency. 
-    This obsessive behavior is one of the strongest behavioral signals of body dysmorphia.
-  </p>
 
-  <!-- Study 8 -->
-  <h2>Study 8: bodySatisfaction5 vs avoidsPostingDueToPhysique</h2>
-  <div class="chart">
-    <img src="study8.png" alt="Satisfaction vs Avoid Posting">
+  <div class="result-section">
+    <h3>6. Comparisons vs Avoiding Posting</h3>
+    <p>Frequent comparisons increase avoidance of posting physique pictures online.</p>
+    <img src="charts/comparisons_vs_posting.png" alt="Comparisons vs Avoiding Posting">
+    <p><strong>Statistical Test:</strong> r = 0.47, p &lt; 0.001</p>
   </div>
+
+  <div class="result-section">
+    <h3>7. Comparisons vs Mirror Checks</h3>
+    <p>More comparisons are tied to more daily mirror checks, suggesting obsessive behavior.</p>
+    <img src="charts/comparisons_vs_mirror.png" alt="Comparisons vs Mirror Checks">
+    <p><strong>Statistical Test:</strong> r = 0.50, p &lt; 0.001</p>
+  </div>
+
+  <div class="result-section">
+    <h3>8. Body Satisfaction vs Avoiding Posting</h3>
+    <p>Lower body satisfaction correlates with avoiding physique posts.</p>
+    <img src="charts/satisfaction_vs_posting.png" alt="Body Satisfaction vs Avoiding Posting">
+    <p><strong>Statistical Test:</strong> r = -0.39, p &lt; 0.01</p>
+  </div>
+
+  <h2>Discussion</h2>
   <p>
-    Lower body satisfaction was directly tied to avoiding posting on social media. 
-    People who scored themselves lower on satisfaction were far more likely to hide online, 
-    further illustrating how internal struggles with self-image shape external expression.
+    These results confirm much of what I suspected. Social media exposure, especially following fitness influencers, 
+    amplifies pressure, comparisons, and dysmorphic thoughts. Frequent comparisons were tied to nearly every negative 
+    indicator, from mirror checking to avoiding social media posts. The strongest effects came from comparisons 
+    reducing satisfaction and increasing feelings of being too small. This reflects my own experience: no matter 
+    how much progress I make, comparisons often make me feel behind.
   </p>
 
   <h2>Conclusion</h2>
   <p>
-    Across all eight comparisons, a consistent theme emerged: comparison and social media exposure 
-    are powerful predictors of dissatisfaction and dysmorphic tendencies. While the gym can provide 
-    structure and progress, the surrounding culture—especially online—often reinforces feelings of inadequacy. 
-    The strongest effects appeared in how comparison behaviors translated into dissatisfaction, avoidance, 
-    and compulsive habits like mirror-checking. 
+    This study shows that gym culture and social media create a cycle that drives body dysmorphia. Following influencers 
+    and comparing physiques are powerful predictors of dissatisfaction and unhealthy behaviors. Moving forward, I hope 
+    to expand this research with a larger dataset, more diverse demographics, and perhaps intervention studies. The 
+    results highlight that we need more awareness around the mental health costs of fitness culture.
   </p>
-
-  <a href="GymData.html" class="back-link">⬅ Back to Personal Essay</a>
 
 </body>
 </html>
