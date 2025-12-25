@@ -198,30 +198,29 @@
         <h3>Data Science Researcher</h3>
         <p><em>John Deere · Aug 2025 – Present</em></p>
         <ul>        
-          <li>Developing 3-month demand forecasting models for John Deere parts using tree-based methods including Decision
-Trees and Random Forests</li>
-          <li>Implementing recursive forecasting to generate realistic, sequential predictions without data leakage</li>
-          <li>Engineering lag-based and temporal features to capture short-term demand patterns across 67-month time series</li>
-          <li>Evaluating model performance using RMSE to guide improvements in forecast accuracy and business relevance</li>
+          <li>Designed and trained tree-based machine learning models (Decision Trees, Random Forests, XGBoost) for 3-month part-level demand forecasting across multi-year time series data</li>
+          <li>Implemented recursive forecasting to generate realistic, sequential predictions without data leakage</li>
+          <li>Engineered lag-based and temporal features to capture short-term demand patterns across 67-month time series</li>
+          <li>Evaluated model performance using RMSE to guide improvements in forecast accuracy and business relevance</li>
         </ul>
       </div>
       <div class="card">
         <h3>Data Science Intern</h3>
         <p><em>BASF · Aug 2024 – May 2025</em></p>
         <ul>
-          <li>Cleaned and merged 500K+ agricultural treatment records into a standardized, analysis-ready dataset</li>
-          <li>Engineered spatiotemporal features to effectively capture geographic and sequential treatment patterns</li>
-          <li>Built and validated logistic regression and gradient boosting models to predict second-treatment likelihood</li>
-          <li>Conducted rigorous cost-benefit simulations to optimize treatment allocation and sequencing strategies</li>
+          <li>Analyzed 10 years of California miticide application data to identify seasonal and regional usage patterns</li>
+          <li>Estimated reapplication probabilities conditioned on spring active ingredient choice</li>
+          <li>Conducted cost–benefit simulations to compare long-term outcomes of treatment strategies</li>
+          <li>Performed geospatial county-level segmentation to inform region-specific product recommendations</li>
         </ul>
       </div>
       <div class="card">
         <h3>Machine Learning Research Assistant</h3>
         <p><em>CourseKata Project · Mar 2024 – Jun 2024</em></p>
         <ul>
-          <li>Built predictive regression models on 450K student records, identifying key factors influencing academic outcomes</li>
-          <li>Applied correlation analyses and unsupervised clustering to video engagement logs, showing rewatchers were 72% more likely to finish assignments</li>
-          <li>Engineered data pipelines in R (tidyverse) and built ggplot2 visualizations for feature engineering and analysis</li>
+          <li>Built linear regression models on 450K student records to identify key factors influencing academic outcomes</li>
+          <li>Applied correlation analysis and k-means clustering to video engagement logs, finding rewatchers were 72% more likely to complete assignments</li>
+          <li>Engineered data pipelines in R (tidyverse) and created ggplot2 visualizations to support feature analysis</li>
           <li>Delivered insights at ASA DataFest through reproducible workflows, engaging academic and industry audiences</li>
         </ul>
       </div>
@@ -233,25 +232,24 @@ Trees and Random Forests</li>
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="card">
-        <h3>Body Dysmorphia and Gym Culture Study</h3>
-        <ul>
-          <li>Independently designed and deployed a 100+ response survey on gym culture, social media, and body image</li>
-          <li>Built an end-to-end pipeline in Python (Pandas, NumPy) to clean, standardize, and analyze collected data</li>
-          <li>Applied statistical tests to evaluate significance of body dysmorphia indicators across demographics and habits</li>
-          <li>Developed visualizations with Matplotlib and published results on a public website to communicate findings</li>
-          <li>Modeled body satisfaction using regression and classification techniques to identify key predictors among demographics, gym habits, and social media exposure</li>
-        </ul>
-        <p><a href="GymDataResults.html" target="_blank">📊 View results</a></p>
-      </div>
-      <div class="card">
         <h3>NBA Prop Prediction</h3>
         <ul>
-          <li>Built a stat projection tool using nba api to analyze player game logs, team matchups, and current trends</li>
-          <li>Engineered a weighted averaging system that adjusts player performance by various factors</li>
-          <li>Integrated team stat rankings and matchup deltas to refine individual projections based on historical performance</li>
-          <li>Currently developing a machine learning model to improve the accuracy of player prop predictions across key stat categories</li>
+          <li>Built an end-to-end pipeline to predict NBA player points using historical performance and game context</li>
+          <li>Engineered rolling and opponent-specific features to capture recent form, minutes trends, and matchup effects</li>
+          <li>Trained and evaluated linear regression and gradient-boosted tree models using RMSE and MAE on held-out data</li>
+          <li>Developed model interpretability and evaluation visualizations, including feature importance and prediction calibration</li>
         </ul>
         <p><a href="NBAPropPredictor.html" target="_blank">📄 Read essay</a></p>
+      </div>
+      <div class="card">
+        <h3>Body Dysmorphia and Gym Culture Study</h3>
+        <ul>
+          <li>Built an end-to-end machine learning pipeline on behavioral survey data, from preprocessing to evaluation</li>
+          <li>Trained and compared logistic regression, decision tree, and random forest models to predict body dissatisfaction risk based on behavioral and demographic survey variables</li>
+          <li>Evaluated model performance using ROC–AUC and recall across linear and tree-based classifiers</li>
+          <li>Applied K-means and hierarchical clustering to uncover gym-goer archetypes and quantify large disparities in body dissatisfaction risk, including one cluster with 68% at-risk prevalence</li>
+        </ul>
+        <p><a href="GymDataResults.html" target="_blank">📊 View results</a></p>
       </div>
       <div class="card">
         <h3>Swimlytics</h3>
