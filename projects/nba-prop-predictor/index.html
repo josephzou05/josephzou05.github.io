@@ -1,117 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NBA Prop Predictor — Model Results</title>
-  <style>
-    body {
-      font-family: Georgia, serif;
-      line-height: 1.7;
-      color: #111827;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-      background: #f9fafb;
-    }
-    h1 {
-      font-size: 2.4rem;
-      color: #1D428A;
-    }
-    h2 {
-      margin-top: 2.5rem;
-      color: #1D428A;
-      font-size: 1.4rem;
-      border-bottom: 2px solid #FFC72C;
-      padding-bottom: 0.3rem;
-    }
-    h3 {
-      margin-top: 1.8rem;
-      color: #1D428A;
-      font-size: 1.15rem;
-    }
-    p {
-      margin: 1rem 0;
-    }
-    ul {
-      margin-top: 0.75rem;
-    }
-    blockquote {
-      border-left: 4px solid #FFC72C;
-      padding-left: 1rem;
-      font-style: italic;
-      color: #444;
-      margin: 1.5rem 0;
-    }
-    .image-row {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-      flex-wrap: wrap;
-    }
-    figure {
-      max-width: 48%;
-      text-align: center;
-    }
-    figure img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    }
-    figcaption {
-      font-size: 0.9rem;
-      color: #444;
-      margin-top: 0.5rem;
-    }
-    code {
-      background: #e5e7eb;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.95rem;
-    }
-    a {
-      color: #1D428A;
-      text-decoration: underline;
-    }
-  </style>
-</head>
 <body>
 
   <h1>NBA Prop Predictor — Model Results</h1>
   <p><em>By Joseph Zou · Updated Summer 2025</em></p>
 
   <p>
-    This project began as a personal frustration. Even after watching every Warriors game and tracking box scores,
-    my NBA player prop picks often missed. Over time, that frustration turned into a question:
-    could a data-driven model consistently outperform intuition?
+    This project began as a personal frustration rooted in something I genuinely cared about.
+    I have been a long-time Warriors fan who watches nearly every game, follows player trends,
+    and pays close attention to rotations and matchups. When I first started placing NBA player
+    props casually with friends, I assumed that this level of attention would naturally translate
+    into better predictions.
   </p>
 
   <p>
-    What started as simple weighted averages has since evolved into a multi-model machine learning pipeline
-    designed to predict single-game NBA point totals using recent performance, matchup context,
-    and playing time trends.
+    Instead, I found the opposite. Even when my intuition felt strong, results were inconsistent.
+    A player would get into foul trouble early, lose minutes due to a coaching decision,
+    or see usage drop unexpectedly in a blowout. Over time, I realized that while intuition
+    captures narrative context, it struggles to consistently balance recent performance,
+    matchup difficulty, and playing time uncertainty.
+  </p>
+
+  <p>
+    That realization motivated me to build something more systematic. I wanted a model that
+    could quantify trends I was already thinking about—recent form, opponent strength,
+    efficiency, and minutes—while also exposing where uncertainty truly dominates.
+    This project evolved from simple heuristics into a full machine learning pipeline
+    designed to predict single-game NBA point totals.
   </p>
 
   <h2>Problem Setup & Data</h2>
 
   <p>
-    The goal of this project is to predict an individual player’s points scored in a single NBA game.
-    I collected historical player game logs and matchup data using the <code>nba_api</code> Python library,
-    focusing on recent performance windows and opponent-specific context.
+    The objective of this project is to predict how many points an individual NBA player
+    will score in a single upcoming game. Historical player game logs and matchup data
+    were collected using the <code>nba_api</code> Python library, covering multiple seasons
+    of regular-season data.
   </p>
 
   <p>
-    Key engineered features include rolling scoring averages, efficiency metrics, minutes trends,
-    opponent-adjusted performance, and game context indicators such as home vs. away.
+    I engineered features focused on short-term trends and matchup context, including
+    rolling scoring averages, opponent-adjusted performance windows, efficiency metrics,
+    recent minutes played, and home vs. away indicators. The target variable is points scored
+    in the next game, evaluated using held-out test data.
   </p>
 
   <h2>Model 1: Linear Regression Baseline</h2>
 
   <p>
-    I began with a linear regression model to establish a transparent and interpretable baseline.
-    This model serves as a sanity check and helps identify which features carry the strongest linear signal.
+    I began with a linear regression model to establish a clear and interpretable baseline.
+    While simple, this model provides insight into which features carry the strongest
+    linear signal and serves as a benchmark for more complex approaches.
   </p>
 
   <ul>
@@ -131,16 +68,24 @@
   </div>
 
   <p>
-    The linear model performs reasonably well for mid-range scorers but tends to regress extreme performances
-    toward the mean. Feature importance reveals that recent scoring efficiency and opponent-adjusted scoring
-    are the strongest linear predictors.
+    The linear model performs reasonably well for mid-range scorers, with predictions clustering
+    near the identity line. However, it systematically underestimates extreme performances,
+    particularly for high-usage players. Feature importance analysis shows that recent
+    points-per-minute efficiency dominates, followed by opponent-adjusted scoring history.
+  </p>
+
+  <p>
+    This behavior reflects an inherent limitation of linear models in sports contexts:
+    extreme outcomes are often driven by non-linear interactions that simple additive
+    relationships cannot fully capture.
   </p>
 
   <h2>Model 2: Tree-Based Regression Model</h2>
 
   <p>
-    To capture non-linear relationships and feature interactions, I trained a tree-based regression model.
-    This approach allows the model to adapt differently for high-usage scorers versus role players.
+    To capture non-linear effects and feature interactions, I trained a tree-based regression model.
+    This approach allows the model to treat similar features differently depending on context,
+    such as distinguishing between high-minute starters and lower-minute role players.
   </p>
 
   <ul>
@@ -160,21 +105,24 @@
   </div>
 
   <p>
-    The tree-based model provides a marginal improvement over the linear baseline and places greater emphasis
-    on opponent-specific scoring history. This suggests that recent performance against similar defenses
-    matters more than raw averages alone.
+    The tree-based model produces a modest improvement over the linear baseline.
+    Predictions are more flexible at higher point totals, and permutation importance
+    reveals a stronger reliance on opponent-specific scoring windows.
+  </p>
+
+  <p>
+    Despite its added complexity, the improvement is incremental rather than dramatic.
+    This suggests that while non-linear structure exists, much of the remaining error
+    arises from factors outside the model’s control rather than insufficient expressiveness.
   </p>
 
   <h2>Model 3: Combined Minutes + Efficiency Model</h2>
 
   <p>
-    To better reflect how scoring actually happens in games, I decomposed point prediction into two separate
-    components: expected minutes played and points per minute efficiency.
-  </p>
-
-  <p>
-    I trained two independent models — one to predict minutes played and another to predict scoring efficiency —
-    and then recombined them to produce a final point estimate.
+    To better reflect how scoring occurs in real games, I decomposed the prediction task
+    into two separate components: minutes played and points-per-minute efficiency.
+    Rather than predicting total points directly, I trained independent models for
+    each component and recombined them to form a final estimate.
   </p>
 
   <ul>
@@ -183,28 +131,41 @@
     <li><strong>Minutes RMSE:</strong> 6.41</li>
   </ul>
 
+  <p>
+    While this approach improves interpretability, it also exposes a key challenge:
+    predicting minutes accurately is substantially harder than predicting efficiency.
+    Coaching decisions, foul trouble, injuries, and game flow introduce large variance
+    that is difficult to capture using historical data alone.
+  </p>
+
   <blockquote>
-    This decomposition highlighted that minutes uncertainty — driven by coaching decisions, foul trouble,
-    and injuries — remains the dominant source of error in NBA prop prediction.
+    Decomposing the prediction revealed that minutes volatility—not scoring efficiency—
+    is the dominant source of error in NBA prop prediction.
   </blockquote>
 
   <h2>Key Takeaways</h2>
 
   <ul>
-    <li>Recent opponent-adjusted scoring is consistently the strongest predictor across models</li>
-    <li>Tree-based models capture useful non-linear structure but offer only marginal gains</li>
-    <li>Minutes volatility remains the largest source of prediction error</li>
-    <li>Even strong models must communicate uncertainty in a domain as stochastic as sports</li>
+    <li>Recent opponent-adjusted scoring is consistently the strongest predictor</li>
+    <li>Tree-based models capture useful non-linear structure but offer limited gains</li>
+    <li>Minutes uncertainty dominates total prediction error</li>
+    <li>Model transparency is critical when uncertainty is unavoidable</li>
   </ul>
 
   <h2>Looking Forward</h2>
 
   <p>
-    Future improvements include incorporating injury reports, back-to-back game effects,
-    and real-time lineup data. While no model can eliminate randomness in sports,
-    this project reinforced how machine learning can turn intuition into structured,
-    testable decision-making.
+    This project reinforced that machine learning does not eliminate uncertainty,
+    especially in a domain as dynamic as professional sports. However, it can
+    transform intuition into a structured, testable framework that clarifies
+    where confidence is justified and where caution is necessary.
+  </p>
+
+  <p>
+    Future work includes integrating injury reports, rest-day effects,
+    lineup announcements, and real-time betting lines. While I no longer
+    bet on sports, this project continues to shape how I think about
+    prediction, uncertainty, and model evaluation in real-world settings.
   </p>
 
 </body>
-</html>
